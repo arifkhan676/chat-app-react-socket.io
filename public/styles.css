@@ -2,8 +2,74 @@ body{
     padding: 0;
     margin: 0;
 }
-
-.App{
-  width: auto;
+.userName{
+  text-align: center;
+  margin-top: 15px;
+}
+.app{
+  height: 300px;
+  width: 250px;
+  display:grid ;
+  text-align: center;
+  background-color: lightseagreen;
+  margin-top: 5%;
+  margin-left: 40%;
+}
+.inp{
+  margin-top: 5px;
+  margin-bottom: 15px ;
+}
+.btn{
   
 }
+.livechat{
+  height: 300px;
+  width: 300px;
+  text-align: center;
+  background-color:darkslateblue;
+  margin-left: 37%;
+  margin-top: 5%;
+}
+
+.chat-header{
+  position: fixed;
+}
+
+.chat-body{
+  border-top: 1px solid gray;
+  position: relative;
+  top: 40px;
+} 
+
+.lc{
+  color:springgreen;
+  width: 100%;
+  padding-top: 5px;
+  margin-left: 10px;
+}
+.chat-footer{
+  position: relative;
+}
+.posi{
+  position: absolute;
+  top: 230px;
+  border-top: 1px solid gray;
+  width: 100%;
+}
+.fbtn{
+  width: 70%;
+}
+.fbt{
+  display: inline-block;
+  margin-right: 40px;
+}
+/*
+.chat-body{
+  height: calc(450px - (45px + 70px));
+
+  border: 1px solid #263238;
+  overflow-y: scroll;
+  overflow-x: auto;
+  position: relative;
+} 
+*/
