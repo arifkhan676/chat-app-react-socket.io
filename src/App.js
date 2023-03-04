@@ -14,16 +14,16 @@ function App() {
   
   const joinRoom= ()=>{
     if(username !== "" && room !== "" ){
-        socket.emit("join_room", room); //room as passing data in server index
+        socket.emit("join_room", room); //  // used to send strings, numbers, objects or arrays to the client+        room as passing data in server index
     }
   }
 
   return (
     <div className="App">
-         <h3 className='userName' > A chat</h3>
-    <input type="text" placeholder='Diba...' onChange={(event)=>{
+       <h3 className='userName' > A chat</h3>
+    <input className='inp' type="text" placeholder='Diba...' onChange={(event)=>{
       setUsername(event.target.value)}} /> 
-    <input type="text" placeholder='Room ID...'  onChange={(event)=>{
+    <input className='inp'  type="text" placeholder='Room ID...'  onChange={(event)=>{
       setRoom(event.target.value)}}  />
     <button onClick={joinRoom} > Join Room </button>
     
@@ -32,6 +32,6 @@ function App() {
     </div>
   );
 }
-//  above inputes onChange    // access user from input 
+//  above inputes onChange    // access user from target its value, input 
 
 export default App;
