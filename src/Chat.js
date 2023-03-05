@@ -10,11 +10,16 @@ function Chat({socket, username, room}){
             room:room, 
             author:username,
             message:currentMessage,
-            time: new Date(Date.now()).getHours()+":"+ new Date(Date.now()).getMinutes(),
+            time:
+            new Date(Date.now()).getHours() +
+            ":" +
+            new Date(Date.now()).getMinutes(),
          };
         await socket.emit("send_message",messageData); 
+        setMessageList((list) => [...list, messageData]);
+        setCurrentMessage("");
        }
-   }
+   };
 
    useEffect(()=>{
     socket.on("receive_message",(data)=>{
@@ -30,9 +35,11 @@ function Chat({socket, username, room}){
       </div>
 
       <div className='chat-body'>
-       {messageList.map((messageContent) => {
-       return <h3>{messageContent.messageData}</h3>;
-       })}  
+         <div className='hire'>
+         {messageList.map((messageContent) => {
+       return <p className='cb' >{messageContent.message}</p>;
+       })} 
+         </div>
         </div>
 
       <div className='chat-footer'>
@@ -48,3 +55,9 @@ function Chat({socket, username, room}){
  ;   
 }
 export default Chat ;
+
+/*
+{messageList.map((messageContent) => {
+       return <h3>{messageContent.message}</h3>;
+       })} 
+       */
