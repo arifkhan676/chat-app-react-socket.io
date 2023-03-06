@@ -20,7 +20,7 @@ function Chat({socket, username, room}){
         setCurrentMessage("");
        }
    };
-
+//have to work on this
    useEffect(()=>{
     socket.on("receive_message",(data)=>{
     setMessageList((list)=> [...list, data]);

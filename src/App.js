@@ -19,6 +19,7 @@ function App() {
     setShowChat(true);
       }
   }
+  
 
   return (
     <div className="mainDiv">
