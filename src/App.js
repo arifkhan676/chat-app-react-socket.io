@@ -18,7 +18,7 @@ function App() {
         socket.emit("join_room", room); //  // used to send strings, numbers, objects or arrays to the client+        room as passing data in server index
     setShowChat(true);
       }
-  }
+  };
   
 
   return (
@@ -26,16 +26,17 @@ function App() {
       { !showChat ? (
       <div className='app'> 
       <h3 className='userName' > A chat</h3>
-    <input className='inp' type="text" placeholder='Diba...' onChange={(event)=>{
+    <input className='inp' type="text" placeholder='Arif' onChange={(event)=>{
       setUsername(event.target.value)}} /> 
     <input className='inp'  type="text" placeholder='Room ID...'  onChange={(event)=>{
       setRoom(event.target.value)}}  />
     <button className='btn btn-dark' onClick={joinRoom} > Join Room </button>
       </div> )
-      : (<div className='livechat'>
+      : (
+      <div className='livechat'>
       <Chat socket={socket} username={username} room={room} />
-      </div>)
-          }
+      </div>
+      )  }
     </div>
   );
 }

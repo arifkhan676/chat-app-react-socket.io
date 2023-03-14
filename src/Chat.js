@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react'; 
 
 function Chat({socket, username, room}){
    const [currentMessage, setCurrentMessage]=useState("");
   const [messageList,setMessageList]=useState([]);
 
    const sendMessage = async ()=>{ //async here synce the array 
-      if(currentMessage !==""){
+      if(currentMessage !== ""){
          const messageData = { //object that return what users see
             room:room, 
             author:username,
@@ -20,11 +20,17 @@ function Chat({socket, username, room}){
         setCurrentMessage("");
        }
    };
-//have to work on this
+//have to work on this useEffect
    useEffect(()=>{
+      /*  socket.on("send_message",(data)=>{
+         socket.to(data.room).emit("receive_message",data); //"socket.emit" is a method to send data from the client-side to the server-side or vice versa over a network connection
+        });
+    
+   socket.emit("send_message",data );*/
+
     socket.on("receive_message",(data)=>{
     setMessageList((list)=> [...list, data]);
-   });
+   }); 
    },[socket]);
 
 
@@ -56,8 +62,5 @@ function Chat({socket, username, room}){
 }
 export default Chat ;
 
-/*
-{messageList.map((messageContent) => {
-       return <h3>{messageContent.message}</h3>;
-       })} 
-       */
+
+  
